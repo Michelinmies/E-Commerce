@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styles from './ProductList.module.css'
+import ShoppingCart from './ShoppingCart';
+import CategoryFilter from './CategoryFilter';
 
 const products = [
   {
@@ -81,6 +83,10 @@ const ProductList = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [cart, setCart] = useState([]);
 
+  const calculateCartTotal = () => {
+    return cart.reduce((total, item) => total + item.price, 0)
+  }
+
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   };
@@ -106,18 +112,12 @@ const ProductList = () => {
     <div>
       <h1>Product List</h1>
 
-      {/* Filter by Category Menu */}
-      <div className={styles['dropdown']} onClick={toggleDropdown}>
-        <button className={styles['dropbtn']}>Filter by Category</button>
-        <div className={styles['dropdown-content']} style={{ display: dropdownVisible ? 'block' : 'none' }}>
-          <li onClick={() => filterProductsByCategory(null)}>All</li>
-          {uniqueCategories.map(category => (
-            <li key={category} onClick={() => filterProductsByCategory(category)}>
-              {category}
-            </li>
-          ))}
-        </div>
-      </div>
+      <CategoryFilter
+        toggleDropdown={toggleDropdown}
+        dropdownVisible={dropdownVisible}
+        uniqueCategories={uniqueCategories}
+        filterProductsByCategory={filterProductsByCategory}
+        />
 
       {/* Product List */}
       <ul className={styles['product-list']}>
@@ -143,21 +143,11 @@ const ProductList = () => {
       </ul>
 
       {/* Shopping Cart */}
-      <div>
-        <h2>Shopping Cart</h2>
-        {cart.length > 0 ? (
-          <ul>
-            {cart.map((item) => (
-              <li key={item.id}>
-                {item.name} - ${item.price.toFixed(2)}
-                <button onClick={() => removeFromCart(item.id)}>Remove</button>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>Your cart is empty.</p>
-        )}
-      </div>
+      <ShoppingCart
+        cart={cart}
+        removeFromCart={removeFromCart}
+        calculateCartTotal={calculateCartTotal}
+      />
     </div>
   );
 };

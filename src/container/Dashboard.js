@@ -1,11 +1,11 @@
 import React from 'react'
-import Main from '../components/Main/Main'
+import MainPage from '../components/Main/MainPage'
 import Sidebar from '../components/Sidebar/Sidebar'
 
 const Dashboard = () => {
   return (
     <div>
-      <Main></Main>
+      <MainPage></MainPage>
       <Sidebar></Sidebar>
 
     </div>

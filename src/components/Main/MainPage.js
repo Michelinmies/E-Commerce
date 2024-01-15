@@ -10,7 +10,7 @@ const Container = styled.div`
   padding: 0 4rem;
 `
 
-const Main = () => {
+const MainPage = () => {
   return (
     <Container>
       <Nav />
@@ -19,4 +19,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default MainPage
