@@ -8,6 +8,7 @@ const Container = styled.div`
 
 const ProfileImg = styled.img`
   height: 5rem;
+  margin-left: 9px;
 `
 
 const ProfileName = styled.h1`
@@ -21,7 +22,7 @@ const Profile = () => {
   return (
     <Container>
         <ProfileImg src={Image} />
-        <ProfileName>Malli Käyttäjä</ProfileName>
+        <ProfileName>Example User</ProfileName>
     </Container>
   )
 }

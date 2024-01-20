@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import { ThemeProvider } from 'styled-components'
-import Dashboard from './container/Dashboard'
 import { lightTheme, darkTheme } from './styles/theme'
 import { GlobalStyles } from './styles/global'
 import { ThemeContext } from './context/themeContext'
+import MainPage from './components/Products/MainPage'
+ 
 
 const App = () => {
 
@@ -12,12 +13,14 @@ const App = () => {
 
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <>
-        <GlobalStyles />
-        <Dashboard />
-      </>
-    </ThemeProvider>
+   
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <>
+          <GlobalStyles />
+          <MainPage />
+        </>
+      </ThemeProvider>
+    
   )
 }
 

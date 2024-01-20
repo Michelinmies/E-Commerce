@@ -1,8 +1,15 @@
 .cart {
+    margin-top: 20px;
     margin-bottom: 40px;
     margin-left: 40px;
+    padding-bottom: 100px;
   }
-  
+
+  .cart p {
+    font-size: 17px;
+    color: black;
+  }
+
   .cart-list {
     list-style: none;
     padding: 0;
@@ -13,7 +20,15 @@
     margin: 10px;
     border: 1px;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
+  }
+
+  .cart-item button {
+    font-size: 10px;
+  }
+
+  .cart-item li {
+    font-size: 5px;
   }
   
   .cart-item-button {

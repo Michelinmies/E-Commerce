@@ -16,12 +16,12 @@ const ShoppingCart = ({ cart, removeFromCart, calculateCartTotal }) => {
               ))}
             </ul>
             <p>Total: ${calculateCartTotal().toFixed(2)}</p>
+            <p>Checkout from the navigation bar's cart icon.</p>
           </div>
         ) : (
-          <p>Your cart is empty.</p>
+          <p>Your cart is empty. </p>
         )}
     </div>
-
   );
 };
 

@@ -1,33 +1,21 @@
-import React from 'react'
-import styled from 'styled-components'
-import Profile from './Profile'
-import Menu from '../Menu/Menu'
-import ToggleSwitch from './ToggleSwitch'
-import ShoppingCartIcon from './ShoppingCartIcon'
-
-const Container = styled.div`
-    background-color: ${({theme}) => theme.secondary};
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 16rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-
-`
+import React, { useState } from 'react';
+import styles from './Sidebar.module.css';
+import Profile from './Profile';
 
 const Sidebar = () => {
-  return (
-    <Container>
-      <Profile />
-      <Menu />
-      <ToggleSwitch />
-      <ShoppingCartIcon />
-    </Container>
-  )
-}
 
-export default Sidebar
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+
+  const handleCheckoutClick = () => {
+    setIsCheckoutOpen(!isCheckoutOpen);
+  };
+
+  return (
+    <div className={styles["container"]}>
+      <Profile />
+        
+    </div>
+  );
+};
+
+export default Sidebar;
